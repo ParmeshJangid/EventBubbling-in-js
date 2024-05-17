@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parentContainer {
+            border: 2px solid black;
+            height: 100px;
+            width: 700px;
+            padding: 10px;
+            background-color: yellow;
+        }
+
+        .container {
+            border: 2px solid red;
+            height: 60px;
+            width: 570px;
+            padding: 10px;
+            background-color: black;
+        }
+
+        .childContainer {
+            border: 2px solid rgb(111, 0, 255);
+            height: 30px;
+            width: 545px;
+            padding: 10px;
+            background-color: rgb(236, 4, 4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parentContainer" onclick="parentContainer(event)">
+        <div class="container" onclick="container(event)">
+            <div class="childContainer" onclick="childContainer(event)"></div>
+        </div>
+    </div>
+</body>
+<script>
+    const parentContainer = (event) => {
+        alert("parentContainer was clicked")
+        document.querySelector(".parentContainer").style = "background-color:red;"
+    }
+    const container = (event) => {
+        event.stopPropagation();
+        alert("container was clicked")
+        document.querySelector(".container").style = "background-color:yellow;"
+    }
+    const childContainer = (event) => {
+        event.stopPropagation();
+        alert("childcontainer was clicked")
+        document.querySelector(".childContainer").style = "background-color:blue;"
+    }
+</script>
+
+</html>
